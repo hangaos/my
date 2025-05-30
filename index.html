@@ -1,31 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
   <title>HANGAOS</title>
 </head>
 
 <body>
-  <div class="title-card-container">
-    <div class="title-card">
-      <div class="title-header">
-        <span>HI</span><br><span>I AM</span>
-      </div>
-      <div class="title-main" id="evangelion">
-        HANGAOS
-      </div>
-      <div class="contact" id="episode">
-        CONTACT:
-      </div>
-      <div class="title-text">
-        <a id="title" href="https://facebook.com/hangaos">Facebook</a><br>
-        <a id="title" href="mailto:work@hangaos.com">Email</a>
+  <div class="crt-container">
+    <div class="crt-screen">
+      <!-- CRT Effects -->
+      <div class="screen-glow"></div>
+      <div class="vignette"></div>
+      <div class="phosphor-glow"></div>
+      <div class="beam-effect"></div>
+      <div class="noise"></div>
+      <div class="flicker"></div>
+      <div class="scanlines"></div>
+      <div class="random-flicker" id="randomFlicker"></div>
+
+      <!-- Original Content -->
+      <div class="content-wrapper">
+        <div class="title-card-container">
+          <div class="title-card">
+            <div class="title-header"><span>HI</span><br /><span>I AM</span></div>
+            <div class="title-main" id="evangelion">HANGAOS</div>
+            <div class="contact" id="episode">CONTACT:</div>
+            <div class="title-text">
+              <a id="title" href="https://facebook.com/hangaos">Facebook</a><br />
+              <a id="title" href="mailto:work@hangaos.com">Email</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
