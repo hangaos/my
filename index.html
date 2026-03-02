@@ -4,40 +4,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <link rel="icon" href="favicon.svg" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <title>HANGAOS</title>
 </head>
 
 <body>
-  <div class="crt-container">
-    <div class="crt-screen">
-      <!-- CRT Effects -->
-      <div class="screen-glow"></div>
-      <div class="vignette"></div>
-      <div class="phosphor-glow"></div>
-      <div class="beam-effect"></div>
-      <div class="noise"></div>
-      <div class="flicker"></div>
-      <div class="scanlines"></div>
-      <div class="random-flicker" id="randomFlicker"></div>
+  <!-- SVG Filters for Paper Texture -->
+  <svg class="svg-filters">
+    <defs>
+      <!--
+        Premium 100% cotton paper texture.
+        Key insight: cotton card stock has micro-texture you FEEL, not SEE.
+        Use very high baseFrequency = tiny uniform grain, not blotchy patches.
+      -->
+      <!-- Filter 1: Cotton micro-grain — uniform fine texture -->
+      <filter id="paper-fibers" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="4.0" numOctaves="4" seed="5" stitchTiles="stitch"
+          result="micro" />
+        <feColorMatrix type="saturate" values="0" in="micro" result="gray" />
+        <feComponentTransfer in="gray" result="grain">
+          <feFuncR type="linear" slope="0.03" intercept="0.485" />
+          <feFuncG type="linear" slope="0.03" intercept="0.485" />
+          <feFuncB type="linear" slope="0.03" intercept="0.485" />
+        </feComponentTransfer>
+        <feBlend in="SourceGraphic" in2="grain" mode="multiply" />
+      </filter>
+      <!-- Filter 2: Slightly larger structure — very subtle fiber direction -->
+      <filter id="paper-weave" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="1.2 1.0" numOctaves="3" seed="13" stitchTiles="stitch"
+          result="weave" />
+        <feColorMatrix type="saturate" values="0" in="weave" result="gw" />
+        <feComponentTransfer in="gw" result="sw">
+          <feFuncR type="linear" slope="0.04" intercept="0.48" />
+          <feFuncG type="linear" slope="0.04" intercept="0.48" />
+          <feFuncB type="linear" slope="0.04" intercept="0.48" />
+        </feComponentTransfer>
+        <feBlend in="SourceGraphic" in2="sw" mode="multiply" />
+      </filter>
+    </defs>
+  </svg>
 
-      <!-- Original Content -->
-      <div class="content-wrapper">
-        <div class="title-card-container">
-          <div class="title-card">
-            <div class="title-header"><span>HI</span><br /><span>I AM</span></div>
-            <div class="title-main" id="evangelion">HANGAOS</div>
-            <div class="contact" id="episode">CONTACT:</div>
-            <div class="title-text">
-              <a id="title" href="https://facebook.com/hangaos">Facebook</a><br />
-              <a id="title" href="mailto:work@hangaos.com">Email</a>
+  <div class="scene" id="scene">
+    <div class="card-container" id="cardContainer">
+      <div class="card" id="businessCard">
+        <!-- ==================== FRONT FACE ==================== -->
+        <div class="card-face card-front">
+          <!-- Paper Texture Layers -->
+          <div class="paper-base"></div>
+          <div class="paper-fibers"></div>
+          <div class="paper-weave"></div>
+          <div class="paper-sheen"></div>
+
+          <!-- Card Content -->
+          <div class="card-content">
+            <!-- Top Row: Phone (left) + Company (right) -->
+            <div class="card-top">
+              <span class="phone">contact@hangaos.com</span>
+              <div class="company">
+                <span class="company-name">The Komura</span>
+                <span class="company-tagline">Unnecessary Creations</span>
+              </div>
             </div>
+
+            <!-- Center: Name + Title -->
+            <div class="card-center">
+              <span class="name">DO HOANG ANH</span>
+              <span class="title-role"><span class="strikethrough">Not A</span> Software Engineer</span>
+            </div>
+
+            <!-- Bottom: Address / Contact -->
+            <div class="card-bottom">
+              <span class="address"><span id="cityScramble">Ho Chi Minh</span>, Vietnam</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== BACK FACE (placeholder) ==================== -->
+        <div class="card-face card-back">
+          <div class="paper-base"></div>
+          <div class="paper-fibers"></div>
+          <div class="paper-weave"></div>
+          <div class="paper-grain"></div>
+          <div class="paper-sheen"></div>
+          <div class="card-content back-content">
+            <span class="back-logo">H</span>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Hint -->
+    <div class="hint" id="hint">click to flip</div>
   </div>
+
   <script src="script.js"></script>
 </body>
 
