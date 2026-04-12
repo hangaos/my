@@ -361,6 +361,9 @@ body {
   font-variant: small-caps;
   letter-spacing: 0.14em;
   color: #5a534a;
+  text-shadow:
+    0 0.6px 0 rgba(255, 255, 245, 0.7),
+    0 -0.5px 0.5px rgba(25, 20, 12, 0.15);
 }
 
 .back-logo {
