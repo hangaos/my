@@ -315,6 +315,54 @@ body {
   justify-content: center;
 }
 
+.back-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.back-by {
+  font-size: clamp(9px, 1.5vw, 12px);
+  letter-spacing: 0.12em;
+  color: #5a534a;
+  font-variant: small-caps;
+}
+
+.back-by {
+  font-size: clamp(9px, 1.5vw, 12px);
+  letter-spacing: 0.12em;
+  color: #5a534a;
+  font-variant: small-caps;
+  text-shadow:
+    0 0.6px 0 rgba(255, 255, 245, 0.7),
+    0 -0.5px 0.5px rgba(25, 20, 12, 0.15);
+}
+
+.back-name {
+  font-size: clamp(18px, 3.5vw, 28px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #2c2620;
+  text-shadow:
+    0 0.7px 0 rgba(255, 255, 245, 0.75),
+    0 -0.6px 0.7px rgba(25, 20, 12, 0.22);
+}
+
+.back-company {
+  font-size: clamp(10px, 1.8vw, 14px);
+  letter-spacing: 0.06em;
+  color: #3d3830;
+}
+
+.back-tagline {
+  font-size: clamp(8px, 1.3vw, 11px);
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: #5a534a;
+}
+
 .back-logo {
   font-size: clamp(48px, 10vw, 80px);
   font-weight: 700;
